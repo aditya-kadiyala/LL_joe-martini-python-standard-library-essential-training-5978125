@@ -29,10 +29,36 @@ prodlist = [
 # attrgetter() retrieves a given attribute or property from an object
 # itemgetter() retrieves an item at a given index in a collection
 # methodcaller() calls the given method on the object
-print("Using the attrgetter method:")
 
-# print("Using methodcaller to invoke a method:")
+print("Using the attrgetter method:")
+# print(prodlist)
+# print(sorted(prodlist, key = attrgetter("weight")))
+# print(sorted(prodlist, key = attrgetter("weight"), reverse=True))
+# print()
+# print(prodlist)
+# print(sorted(prodlist, key = attrgetter("name")))
+# print(sorted(prodlist, key = attrgetter("name"), reverse=True))
+# print()
+# print(prodlist)
+# print(sorted(prodlist, key = attrgetter("weight")))
+# print(sorted(prodlist, key = attrgetter("weight", "price"), reverse=True))
+
+print("Using methodcaller to invoke a method:")
+# print(prodlist)
+# print(sorted(prodlist, key = methodcaller("discount_price")))
+# print(sorted(prodlist, key = methodcaller("discount_price"), reverse=True))
 
 # TODO: Use itemgetter to retrieve an index from a tuple or list
-inventory = [("Widget A", 5), ("Widget B", 2), ("Widget C", 4),
+inventory = [("Widget A", 5), ("Widget C", 2), ("Widget B", 4),
              ("Widget D", 7), ("Widget E", 4)]
+
+print("Using itemgetter to invoke a method:")
+print(inventory)
+print()
+print(sorted(inventory, key = lambda item : item[0]))
+print(sorted(inventory, key = itemgetter(0)))
+print()
+print(sorted(inventory, key = lambda item : item[1]))
+print(sorted(inventory, key = itemgetter(1)))
+
+

@@ -4,21 +4,29 @@ import bisect
 values = [5, 7, 13, 20, 25, 31, 36, 43, 47, 49, 50, 75]
 
 # TODO: exercise the left and right bisection routines
-
+# print(bisect.bisect_left(values, 25))
+# print(bisect.bisect(values, 25))
+# print(bisect.bisect_right(values, 25))
 
 # TODO: use insort to insert new items
+bisect.insort_left(values, 21)
+# print(values)
+
 
 
 # bisect can be used as an array lookup using breakpoints
 breakpoints = [60, 70, 80, 90]
 gradeLetters = 'FDCBA'
-scores = [81, 68, 53, 91, 90, 82, 76, 71, 84]
+scores = [59, 60, 61, 81, 68, 53, 91, 90, 82, 76, 71, 84]
 
 
 def calcGrade(score):
     # TODO: use the bisect function to identify cutoff points for the letter grades
-    i = 0
+    i = bisect.bisect(breakpoints, score) # bisect_left to put 60 too as F
     return gradeLetters[i]
 
 
 results = [calcGrade(score) for score in scores]
+print(scores)
+print(results)
+print([{score, result} for score, result in zip(scores, results)])
